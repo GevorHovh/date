@@ -94,6 +94,3 @@ let datee =  new myDate(2023 , 1, 10, 5, 10, 70);
 console.log(datee.getFullyear(), datee.getMonth(), datee.getDate(), datee.getDay(), datee.getHours(), datee.getMinutes());
 
 
-let d = new Date();
-
-
