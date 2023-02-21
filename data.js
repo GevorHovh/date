@@ -8,14 +8,19 @@ function myDate(year,month,date ,day,hours,minutes,) {
     
     this.getFullyear = function() {
         if(this.month > 11) {
-             this.year = this.year + 1, this.month = 0
+             this.year = this.year + 1;
            }
         return this.year
     }
-    this.getMonth = function() {
-        if(this.date > 31) {
-            this.month = this.month + 1,this.date = 0;
+    this.getMonth = function() {    
+      if(this.date > 31) {
+        this.month++
+      }
+        for(let m = 0; m < this.month; m++) {
+          if(this.month > 11) {
+            this.month -= 11
           }
+        }
           if(this.month == 0){
             this.month = "Jan"
           }if(this.month == 1){
@@ -44,32 +49,51 @@ function myDate(year,month,date ,day,hours,minutes,) {
         return this.month
         }
     this.getDate = function() {
+     
         if(this.date > 31) {
-            this.date = this.date + 1,this.date = 0;
+           for(let i = 0; i < this.date; i++) {
+            if(this.date > 31) {
+              this.date -= 31
+            }
+           }
           }
-        return this.date
+          return this.date
     }
     this.getDay = function() {
+      for(let d = 0; d < this.day; d++) {
         if(this.day > 7) {
-            this.day = 0
+          this.day -= 7
         }
-        if(this.hours >= 24) {
-            this.day = this.day +1, this.hours = 0
-        }
+      }
+      if(this.hours >= 24) {
+        this.day ++
+      }
         return this.day
     }
     this.getHours = function() {
-        if(this.minutes >= 60) {
-            this.hours = this.hours +1, this.minutes = 0
+      for(let h = 0; h < this.hours; h++) {
+        if(this.hours >= 24) {
+          this.hours -= 24
         }
+      }
+      if(this.minutes >= 60){
+        this.hours++
+      }
         return this.hours
     }
     this.getMinutes = function() {
+      for(let m = 0; m < this.minutes; m++) {
+        if(this.minutes >= 60) {
+          this.minutes -= 60
+        }
+      }
         return this.minutes
     }
 }
-let date = new myDate(2023 , 10 , 17, 5, 20, 49);
-console.log(date.getFullyear(), date.getMonth(), date.getDate(), date.getDay(), date.getHours(), date.getMinutes());
+let datee =  new myDate(2023 , 1, 10, 5, 10, 70);
+console.log(datee.getFullyear(), datee.getMonth(), datee.getDate(), datee.getDay(), datee.getHours(), datee.getMinutes());
 
-let da = new Date();
-console.log(Date());
+
+let d = new Date();
+
+
